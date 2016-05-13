@@ -23,6 +23,8 @@ import ctypes.util
 import warnings
 from inspect import getargspec
 
+from . import headers
+
 ########################################################################
 
 __all__ = [
@@ -173,7 +175,7 @@ def _convert_header(header_name, header_module_name):
         _d = {k.replace("DAQmx_", ""): v for k,v in d.viewitems()}
                  
     try:
-        path = os.path.dirname(os.path.abspath (__file__))
+        path = headers.__path__[0]
     except NameError:
         path = os.getcwd()
     fn = os.path.join(path, header_module_name)
@@ -195,7 +197,7 @@ def _load_header(header_name):
 
     version = get_nidaqmx_version()
     mod_name = 'nidaqmx_h_%s' % (version.replace ('.', '_'))
-    pkg_name = "nidaqmx."
+    pkg_name = 'nidaqmx.headers.'
     
     try:
         mod = __import__(pkg_name + mod_name, fromlist=[mod_name])
