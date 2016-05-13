@@ -6,19 +6,18 @@
 # Created: August 2009
 
 from __future__ import division
-import os
-import sys
+
 import time
 ### START UPDATE SYS.PATH ###
 ### END UPDATE SYS.PATH ###
 
 import numpy as np
 
-from ioc.optparse_gui import OptionParser
-from optparse import OptionGroup
+from nidaqmx.examples.contrib.optparse_gui.optparse_gui import OptionParser
 
 from nidaqmx import AnalogInputTask
-from nidaqmx.optparse_options import get_method_arguments, set_ai_options
+from nidaqmx.examples.optparse_options import (get_method_arguments,
+                                               set_ai_options)
 
 def runner (parser, options, args):
     task = AnalogInputTask()
@@ -46,7 +45,7 @@ def runner (parser, options, args):
     print 'read', read_kws
 
     if options.ai_task=='show':
-        from nidaqmx.wxagg_plot import animated_plot
+        from nidaqmx.examples.wxagg_plot import animated_plot
         start_time = time.time()
         def func(task=task):
             current_time = time.time()

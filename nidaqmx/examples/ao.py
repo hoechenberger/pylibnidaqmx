@@ -6,18 +6,16 @@
 # Created: August 2009
 
 from __future__ import division
-import os
-import sys
-import time
 
+import time
 ### START UPDATE SYS.PATH ###
 ### END UPDATE SYS.PATH ###
 
-from ioc.optparse_gui import OptionParser
-from optparse import OptionGroup
+from nidaqmx.examples.contrib.optparse_gui.optparse_gui import OptionParser
 
 from nidaqmx import AnalogOutputTask
-from nidaqmx.optparse_options import get_method_arguments, set_ao_options
+from nidaqmx.examples.optparse_options import (get_method_arguments,
+                                               set_ao_options)
 import numpy as np
 
 def runner (parser, options, args):
