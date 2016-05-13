@@ -17,7 +17,7 @@ def set_di_options (parser):
         parser.run_methods = ['subcommand']
 
     import nidaqmx
-    from nidaqmx.libnidaqmx import make_pattern
+    from nidaqmx.utils import make_pattern
     parser.set_usage ('''\
 %prog [options]
 
@@ -42,7 +42,7 @@ def set_do_options (parser):
         parser.run_methods = ['subcommand']
 
     import nidaqmx
-    from nidaqmx.libnidaqmx import make_pattern
+    from nidaqmx.utils import make_pattern
     parser.set_usage ('''\
 %prog [options]
 
@@ -68,7 +68,7 @@ def set_ai_options (parser):
         parser.run_methods = ['subcommand']
 
     import nidaqmx
-    from nidaqmx.libnidaqmx import make_pattern
+    from nidaqmx.utils import make_pattern
     parser.set_usage ('''\
 %prog [options]
 
@@ -94,7 +94,7 @@ def set_ao_options (parser):
         parser.run_methods = ['subcommand']
 
     import nidaqmx
-    from nidaqmx.libnidaqmx import make_pattern
+    from nidaqmx.utils import make_pattern
 
     parser.set_usage ('''\
 %prog [options]

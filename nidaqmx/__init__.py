@@ -1,3 +1,15 @@
+#!/usr/bin/env python
+#
+# Please follow
+#   http://projects.scipy.org/numpy/wiki/CodingStyleGuidelines
+#
+# Author: Pearu Peterson
+# Created: July 2009
+#
+# pylint: disable=C,R
+#
+# See http://pylibnidaqmx.googlecode.com/
+
 """
 .. currentmodule:: nidaqmx
 
@@ -79,7 +91,40 @@ Module content
 ==============
 """
 
+from __future__ import (print_function, division, unicode_literals,
+                        absolute_import)
 
-from .libnidaqmx import AnalogInputTask, AnalogOutputTask,\
-    DigitalInputTask, DigitalOutputTask, CounterInputTask,\
-    CounterOutputTask, Device, System, get_nidaqmx_version
+
+from .device import Device
+from .system import System
+from .loader import get_nidaqmx_version
+
+from .system import System
+from .device import Device
+from .analog import AnalogInputTask, AnalogOutputTask
+from .digital import DigitalInputTask, DigitalOutputTask
+from .counter import CounterInputTask, CounterOutputTask
+
+
+__all__ = [
+    'AnalogInputTask', 'AnalogOutputTask',
+    'DigitalInputTask', 'DigitalOutputTask',
+    'CounterInputTask', 'CounterOutputTask',
+    'System', 'Device', 'get_nidaqmx_version',
+]
+
+
+def main():
+    t = AnalogInputTask('measure voltage')
+    t.create_voltage_channel('Dev1/ai8', 'measure')
+    t.configure_timing_sample_clock()
+
+    g = AnalogOutputTask('generate voltage')
+    g.create_voltage_channel('Dev1/ao2', 'generate')
+
+    print(t.get_info_str(global_info=True))
+    print(g.get_info_str())
+
+
+if __name__ == '__main__':
+    main()
