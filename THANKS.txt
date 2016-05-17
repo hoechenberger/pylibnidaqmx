@@ -1,0 +1,11 @@
+PyLibNIDAQmx was created by Pearu Peterson.
+
+The following people have contributed to the project, in no particular order:
+
+  o Hendrik v. Raven
+  o Jonathan Kotta
+  o Richard Höchenberger
+
+
+If you have contributed but are not listed here, please contact the
+development team to get your name included.
